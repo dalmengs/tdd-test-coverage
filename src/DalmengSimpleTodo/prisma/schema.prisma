@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("TEST_APP_DATABASE_URL")
+}
+
+model Todo {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  content String
+}
